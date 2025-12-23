@@ -7,9 +7,6 @@
   <meta name="description" content="Naikin Studio bantu UMKM & online shop naik kelas lewat desain konten: feed, story, banner, pricelist, dan template konten. Elegan, rapi, siap jual." />
 
   <style>
-    /* =========================
-       Naikin Studio — Red & White (Premium, Clean)
-       ========================= */
     :root{
       --bg: #ffffff;
       --text: #0b0f1a;
@@ -114,7 +111,6 @@
     }
     @media (max-width:640px){ .heroInner{padding:56px 0 26px;} }
 
-    /* ===== CTA ===== */
     .ctaRow{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; justify-content:center;}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -128,6 +124,7 @@
       background: linear-gradient(135deg, rgba(215,25,32,.98), rgba(255,59,48,.95));
       color:#fff;
       gap:10px;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-2px); filter: brightness(1.03);}
 
@@ -143,48 +140,38 @@
       color: rgba(11,15,26,.92);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow2);
+      cursor:pointer;
     }
     .btnGhost:hover{transform: translateY(-2px); background: rgba(255,255,255,.98);}
 
-    /* =========================
-       ✅ HERO PREMIUM (MATCH MOCKUP)
-       - center align
-       - pill "Clean" merah
-       - wave + dots background
-       ========================= */
-    .heroLight{ position:relative; }
-    .heroLight::before{ opacity:0 !important; } /* matiin foto biar clean */
+    .waIcon{ width:22px; height:22px; display:inline-block; }
 
+    /* HERO MATCH */
+    .heroLight{ position:relative; }
+    .heroLight::before{ opacity:0 !important; }
     .heroLight::after{
       background:
         radial-gradient(980px 600px at 50% 0%, rgba(215,25,32,.12), transparent 62%),
         radial-gradient(900px 560px at 92% 14%, rgba(255,59,48,.09), transparent 62%),
         radial-gradient(900px 560px at 8% 18%, rgba(215,25,32,.06), transparent 62%),
 
-        /* dots kanan atas (lebih halus) */
         radial-gradient(circle at 86% 18%, rgba(215,25,32,.22) 0 2px, transparent 3px),
         radial-gradient(circle at 90% 22%, rgba(215,25,32,.16) 0 2px, transparent 3px),
         radial-gradient(circle at 94% 26%, rgba(215,25,32,.14) 0 2px, transparent 3px),
         radial-gradient(circle at 88% 30%, rgba(215,25,32,.10) 0 2px, transparent 3px),
         radial-gradient(circle at 95% 32%, rgba(215,25,32,.10) 0 2px, transparent 3px),
 
-        /* wave layer bawah */
         radial-gradient(1200px 360px at 18% 78%, rgba(215,25,32,.06), transparent 65%),
         radial-gradient(1200px 360px at 82% 80%, rgba(215,25,32,.05), transparent 65%),
         radial-gradient(1500px 420px at 50% 92%, rgba(11,15,26,.05), transparent 72%),
 
         linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.96) 55%, rgba(255,255,255,1) 100%);
     }
-
     .heroLight .heroInner{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
+      display:flex; flex-direction:column;
+      align-items:center; text-align:center;
       color: var(--text);
     }
-
-    /* pill like mockup */
     .pill{
       display:inline-flex; align-items:center; gap:12px;
       font-size:13px; font-weight:950;
@@ -207,7 +194,6 @@
       width:6px; height:6px; border-radius:99px;
       background: rgba(215,25,32,.55);
     }
-
     .heroTitle{
       font-size:56px;
       letter-spacing:-.035em;
@@ -218,7 +204,6 @@
       max-width: 980px;
     }
     @media (max-width:640px){ .heroTitle{font-size:34px;} }
-
     .heroLead{
       max-width: 920px;
       font-size:18px;
@@ -228,45 +213,7 @@
     }
     .heroLead b{ color: rgba(215,25,32,.95); font-weight: 950; }
 
-    @media (max-width:640px){
-      .btn,.btnGhost{width:100%;}
-      .ctaRow{gap:10px;}
-    }
-
-    /* WA icon in CTA */
-    .waIcon{
-      width:22px; height:22px; display:inline-block;
-    }
-
-    /* ===== CONTENT TYPO ===== */
-    h2{
-      margin:28px 0 12px;
-      letter-spacing:-.01em;
-      font-size:22px;
-      color: var(--text);
-    }
-    .muted{color:var(--muted);}
-    .note{font-size:13px;}
-
-    /* ===== CARDS ===== */
-    .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{
-      border-radius: var(--radius);
-      background: var(--surface);
-      border:1px solid rgba(215,25,32,.10);
-      box-shadow: var(--shadow2);
-      padding:16px;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: rgba(215,25,32,.18);
-    }
-
-    .hr{height:1px; background: rgba(215,25,32,.10); margin:16px 0;}
-
-    /* ===== KPI (hero cards) ===== */
+    /* ===== KPI (3 kotak bawah CTA) ===== */
     .kpi{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
@@ -285,13 +232,8 @@
     @media (max-width:900px){ .kpi .card{grid-column: span 6;} }
     @media (max-width:640px){ .kpi .card{grid-column: span 12;} }
 
-    /* KPI hitam (request sebelumnya) */
-    .kpi .card, .kpi .card *{ color:#000 !important; }
-
     .kpiTitle{
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display:flex; align-items:center; gap:12px;
       font-weight: 950;
       margin-bottom: 8px;
       font-size:18px;
@@ -307,17 +249,76 @@
     .kpiIcon svg{width:20px; height:20px;}
     .kpiText{ opacity:.92; font-size:16px; line-height:1.6; }
 
-    /* ===== PRICING ===== */
+    h2{
+      margin:28px 0 12px;
+      letter-spacing:-.01em;
+      font-size:22px;
+      color: var(--text);
+    }
+    .muted{color:var(--muted);}
+    .note{font-size:13px;}
+
+    .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(215,25,32,.10);
+      box-shadow: var(--shadow2);
+      padding:16px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(215,25,32,.18);
+    }
+    .hr{height:1px; background: rgba(215,25,32,.10); margin:16px 0;}
     .price{font-size:22px; letter-spacing:-.01em;}
     ul{margin:10px 0 0 18px; padding:0;}
     li{margin:6px 0;}
     ol{margin:10px 0 0 18px;}
 
-    /* ===== LINKS ===== */
-    a{color: rgba(215,25,32,.95);}
-    a:hover{color: rgba(215,25,32,1);}
+    /* Pricing clickable */
+    .priceCard{
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .priceCard::after{
+      content:"Klik untuk detail";
+      position:absolute;
+      right:14px;
+      top:14px;
+      font-size:12px;
+      font-weight:900;
+      color: rgba(215,25,32,.90);
+      background: rgba(215,25,32,.08);
+      border: 1px solid rgba(215,25,32,.14);
+      padding:7px 10px;
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+    }
+    .priceMeta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:900;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(215,25,32,.14);
+      background: rgba(255,255,255,.86);
+      color: rgba(11,15,26,.78);
+    }
+    .chip b{ color: rgba(215,25,32,.95); }
 
-    /* ===== PARALLAX BANNER CARD ===== */
+    /* Banner card */
     .parallaxCard{
       position:relative;
       margin-top:26px;
@@ -351,9 +352,7 @@
     .parallaxCard .inner h2{color:#fff; margin:0 0 8px; text-shadow: 0 12px 30px rgba(0,0,0,.35);}
     .parallaxCard .inner p{color: rgba(255,255,255,.90); max-width:820px; margin:0; text-shadow: 0 10px 24px rgba(0,0,0,.25);}
 
-    /* =========================
-       PORTFOLIO SLIDER
-       ========================= */
+    /* Portfolio slider */
     .portfolio-wrap{ margin-top: 12px; }
     .carousel{
       position: relative;
@@ -442,7 +441,7 @@
     }
     .carNext .carIcon{ transform: rotate(-45deg); }
 
-    /* ===== LIGHTBOX ===== */
+    /* Lightbox */
     .lightbox{
       position:fixed;
       inset:0;
@@ -499,7 +498,6 @@
       border:1px solid rgba(255,255,255,.14);
     }
 
-    /* ===== FOOTER ===== */
     footer{
       margin:34px 0 10px;
       border-top:1px solid rgba(215,25,32,.10);
@@ -526,10 +524,136 @@
       box-shadow: 0 0 0 6px rgba(255,255,255,.16);
     }
 
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto;}
-      .parallax::before, .parallaxCard::before{background-attachment: scroll;}
-      .carousel-viewport{ scroll-behavior:auto; }
+    /* ====== MODAL PACKAGE ====== */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background: rgba(0,0,0,.55);
+      z-index: 9998;
+    }
+    .modal.open{ display:flex; }
+    .modalBox{
+      width: min(760px, 96vw);
+      max-height: min(86vh, 900px);
+      overflow:auto;
+      background: rgba(255,255,255,.96);
+      border-radius: 22px;
+      border: 1px solid rgba(215,25,32,.14);
+      box-shadow: 0 26px 70px rgba(2,6,23,.22);
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+    .modalHead{
+      padding:18px 18px 0;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .modalTitle{
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-.01em;
+      margin:0;
+    }
+    .modalSub{
+      margin:6px 0 0;
+      color: rgba(11,15,26,.70);
+      font-weight:800;
+      font-size:13px;
+      line-height:1.5;
+    }
+    .modalClose{
+      border:none;
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(215,25,32,.08);
+      border: 1px solid rgba(215,25,32,.14);
+      font-weight:950;
+      color: rgba(215,25,32,.95);
+      flex:0 0 auto;
+    }
+    .modalBody{ padding: 12px 18px 18px; }
+    .modalGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width:760px){
+      .modalGrid{ grid-template-columns: 1fr; }
+    }
+    .modalCard{
+      border-radius: 18px;
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(215,25,32,.10);
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+    .modalCard b{ font-weight:950; }
+    .modalCta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+      align-items:center;
+    }
+    .modalNote{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: rgba(11,15,26,.68);
+      line-height: 1.7;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:950;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(215,25,32,.08);
+      border:1px solid rgba(215,25,32,.14);
+      color: rgba(215,25,32,.95);
+    }
+
+    /* ====== ORDER BOX (filled by JS) ====== */
+    .orderBox{
+      margin-top:10px;
+      border-radius:18px;
+      border:1px solid rgba(215,25,32,.12);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+    .orderLabel{
+      font-weight:950;
+      margin-bottom:8px;
+    }
+    textarea.orderText{
+      width:100%;
+      min-height:110px;
+      border-radius:14px;
+      border:1px solid rgba(215,25,32,.16);
+      padding:12px;
+      font-family:inherit;
+      resize:vertical;
+      outline:none;
+    }
+    textarea.orderText:focus{
+      border-color: rgba(215,25,32,.28);
+      box-shadow: 0 0 0 4px rgba(215,25,32,.08);
+    }
+    .orderActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
   </style>
 </head>
@@ -563,7 +687,7 @@
     </div>
   </div>
 
-  <!-- HERO (match mockup) -->
+  <!-- HERO -->
   <header class="parallax heroLight" style="--bgimg:url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2000&q=80');">
     <div class="wrap heroInner">
 
@@ -595,7 +719,7 @@
         <a class="btnGhost" href="#paket">Lihat Paket</a>
       </div>
 
-      <!-- KPI -->
+      <!-- ✅ KOTAK MERAH (KPI) -->
       <div class="kpi">
         <div class="card">
           <div class="kpiTitle">
@@ -664,53 +788,74 @@
     <!-- PAKET -->
     <section id="paket">
       <h2>Paket & Harga</h2>
-      <div class="grid">
+      <p class="muted note">Klik paket untuk detail lengkap + contoh isi konten + kalender posting + tombol pilih paket.</p>
 
-        <div class="card">
+      <div class="grid">
+        <div class="card priceCard" role="button" tabindex="0" data-package="mini">
           <b>Paket Mini</b>
           <div class="muted">3 desain</div>
           <div style="margin-top:10px;" class="price"><b>Rp50.000</b></div>
+          <div class="priceMeta">
+            <span class="chip"><b>1</b> konsep</span>
+            <span class="chip"><b>1x</b> revisi</span>
+            <span class="chip">PNG/JPG</span>
+          </div>
           <div class="hr"></div>
           <ul class="muted">
-            <li>1 konsep desain</li>
-            <li>Revisi 1x</li>
-            <li>File PNG/JPG</li>
+            <li>Promo cepat / tes pasar</li>
+            <li>Desain clean, rapi, siap jual</li>
+            <li>Pas untuk 1 produk / 1 campaign</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card priceCard" role="button" tabindex="0" data-package="starter">
           <b>Paket Starter</b>
           <div class="muted">10 desain • 2–3 hari</div>
           <div style="margin-top:10px;" class="price"><b>Rp150.000</b></div>
+          <div class="priceMeta">
+            <span class="chip"><b>1</b> konsep</span>
+            <span class="chip"><b>1x</b> revisi</span>
+            <span class="chip">PNG/JPG</span>
+          </div>
           <div class="hr"></div>
           <ul class="muted">
-            <li>1 konsep desain</li>
-            <li>Revisi 1x</li>
-            <li>File PNG/JPG</li>
+            <li>Campaign mingguan / katalog kecil</li>
+            <li>Feed lebih konsisten</li>
+            <li>Sudah dapat “arah konten” biar rapi</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card priceCard" role="button" tabindex="0" data-package="bisnis">
           <b>Paket Bisnis</b>
           <div class="muted">30 desain • 5–7 hari</div>
           <div style="margin-top:10px;" class="price"><b>Rp350.000</b></div>
+          <div class="priceMeta">
+            <span class="chip"><b>2</b> konsep</span>
+            <span class="chip"><b>2x</b> revisi</span>
+            <span class="chip">PNG/JPG</span>
+          </div>
           <div class="hr"></div>
           <ul class="muted">
-            <li>2 konsep desain</li>
-            <li>Revisi 2x</li>
-            <li>File PNG/JPG</li>
+            <li>Isi konten 1 bulan aktif</li>
+            <li>Variasi layout lebih banyak</li>
+            <li>Best buat UMKM yang mau growth</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card priceCard" role="button" tabindex="0" data-package="pro">
           <b>Paket Pro</b>
           <div class="muted">60 desain • 7–14 hari</div>
           <div style="margin-top:10px;" class="price"><b>Rp650.000</b></div>
+          <div class="priceMeta">
+            <span class="chip"><b>2–3</b> konsep</span>
+            <span class="chip"><b>3x</b> revisi</span>
+            <span class="chip">PNG/JPG</span>
+          </div>
           <div class="hr"></div>
           <ul class="muted">
-            <li>2–3 konsep desain</li>
-            <li>Revisi 3x</li>
-            <li>File PNG/JPG</li>
+            <li>Stok konten 1–2 bulan</li>
+            <li>Produksi per-batch biar jelas</li>
+            <li>Naik kelas paling maksimal</li>
           </ul>
         </div>
       </div>
@@ -732,7 +877,7 @@
       <div class="card">
         <ol class="muted">
           <li>Kamu kirim brief: produk, target, warna, style, contoh referensi.</li>
-          <li>Aku kirim 2 contoh gaya desain (kamu pilih 1).</li>
+          <li>Aku kirim 1–2 contoh gaya desain (kamu pilih 1 / setujui).</li>
           <li>Produksi sesuai paket + revisi.</li>
           <li>Final dikirim: PNG/JPG (dan file editable jika diminta).</li>
         </ol>
@@ -783,11 +928,31 @@
         </div>
       </div>
 
-      <div class="card" style="margin-top:14px;">
-        <b>Format order cepat</b>
-        <p class="muted" style="margin-top:8px;">
-          Produk: ... • Kebutuhan: ... • Paket: ... • Deadline: ... • Referensi: ...
-        </p>
+      <div class="orderBox" id="orderBox">
+        <div class="orderLabel">Format order cepat (auto terisi saat kamu pilih paket)</div>
+        <textarea class="orderText" id="orderText">Produk: ...
+Kebutuhan: (feed/story/banner/pricelist/template)
+Paket: ...
+Jumlah desain: ...
+Deadline: ...
+Warna/Style: ...
+Referensi: ...</textarea>
+
+        <div class="orderActions">
+          <button class="btnGhost" type="button" id="copyOrderBtn">Copy teks</button>
+          <a class="btn" target="_blank" id="waOrderBtn" href="https://wa.me/6281334185032">
+            <svg class="waIcon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 3C9.4 3 4 8.2 4 14.7c0 2.5.8 4.9 2.2 6.9L5 29l7.6-1.9c2 1.1 4.3 1.7 6.6 1.7 6.6 0 12-5.2 12-11.7C31.2 8.2 25.8 3 19.2 3H16Z" fill="rgba(255,255,255,.18)"/>
+              <path d="M16 5.2c-5.5 0-10 4.3-10 9.5 0 2.2.8 4.2 2.1 5.8l-.8 5.5 5.6-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.3 10-9.5S21.5 5.2 16 5.2Z" fill="rgba(255,255,255,.22)"/>
+              <path d="M22.4 18.6c-.3.8-1.5 1.4-2.4 1.6-.6.1-1.4.2-2.3-.1-2.8-.9-4.6-3.1-4.7-3.2-.1-.1-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5.2.5.8 1.9.9 2 .1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.5 2.9 1.7.3.1.6.1.8-.1.2-.2.9-1 1.1-1.3.2-.3.5-.2.8-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.6.3.1.1.1.6-.2 1.4Z" fill="white"/>
+            </svg>
+            Kirim ke WhatsApp
+          </a>
+        </div>
+
+        <div class="muted note" style="margin-top:8px;">
+          Tips: setelah pilih paket, klik <b>Copy teks</b> lalu paste ke WA, atau langsung klik <b>Kirim ke WhatsApp</b>.
+        </div>
       </div>
     </section>
 
@@ -795,6 +960,20 @@
       © Naikin Studio — 2025
     </footer>
   </main>
+
+  <!-- MODAL PAKET -->
+  <div class="modal" id="pkgModal" aria-hidden="true">
+    <div class="modalBox" role="dialog" aria-modal="true" aria-labelledby="pkgTitle">
+      <div class="modalHead">
+        <div>
+          <h3 class="modalTitle" id="pkgTitle">Detail Paket</h3>
+          <p class="modalSub" id="pkgSub">—</p>
+        </div>
+        <button class="modalClose" id="pkgClose" type="button">Tutup ✕</button>
+      </div>
+      <div class="modalBody" id="pkgBody"></div>
+    </div>
+  </div>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -814,14 +993,9 @@
 
   <script>
     (function(){
-      /* ======================================================
-         EASY ADD PORTFOLIO:
-         Tambah gambar cukup di array ini (feed / banner).
-         - thumb: gambar kecil (boleh sama dengan full)
-         - full : gambar untuk lightbox
-         - cap  : caption
-         ====================================================== */
-
+      /* =========================
+         PORTFOLIO DATA
+         ========================= */
       const portfolioFeed = [
         { thumb: "Biru Minimalis Promo Cuci Sepatu Instagram Post.jpg", full: "Biru Minimalis Promo Cuci Sepatu Instagram Post.jpg", cap: "Promo Cuci Sepatu (Feed)" },
         { thumb: "Kuning Biru Sobekan Kertas Promosi Cuci Helm Cerita Instagram(1).png", full: "Kuning Biru Sobekan Kertas Promosi Cuci Helm Cerita Instagram(1).png", cap: "Promo Cuci Helm (Story)" },
@@ -852,7 +1026,6 @@
       const portfolioBanner = [
         { thumb: "Banner A1 promo oct.png", full: "Banner A1 promo oct.png", cap: "Banner Promo (A1)" },
         { thumb: "Banner Booth 60x160.png", full: "Banner Booth 60x160.png", cap: "Banner Booth 60x160" },
-
       ];
 
       function renderPortfolio(targetId, items){
@@ -919,6 +1092,312 @@
         nextBtn.addEventListener('click', () => viewport.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
       }
       document.querySelectorAll('.carousel').forEach(setupCarousel);
+
+      /* =========================
+         ORDER HELPERS
+         ========================= */
+      const PHONE = "6281334185032";
+      const orderTextEl = document.getElementById('orderText');
+      const waOrderBtn  = document.getElementById('waOrderBtn');
+      const copyOrderBtn = document.getElementById('copyOrderBtn');
+
+      function setOrderTemplate(pkgName, qty, eta){
+        const txt =
+`Produk: ...
+Kebutuhan: (feed/story/banner/pricelist/template)
+Paket: ${pkgName}
+Jumlah desain: ${qty}
+Deadline: ${eta} (boleh isi tanggal pasti)
+Warna/Style: (clean/elegan/minimalis) atau kirim referensi
+Referensi: (link/screenshot)
+Catatan: (ukuran khusus / format feed/story / promo apa?)`;
+        orderTextEl.value = txt;
+        waOrderBtn.href = `https://wa.me/${PHONE}?text=${encodeURIComponent("Halo Naikin Studio, saya mau order.\n\n" + txt)}`;
+      }
+
+      copyOrderBtn.addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(orderTextEl.value);
+          copyOrderBtn.textContent = "Tercopy ✅";
+          setTimeout(()=> copyOrderBtn.textContent = "Copy teks", 1200);
+        }catch{
+          alert("Gagal copy. Silakan blok teks lalu copy manual.");
+        }
+      });
+
+      /* =========================
+         PACKAGE MODAL CONTENT
+         ========================= */
+      const pkgModal = document.getElementById('pkgModal');
+      const pkgBody  = document.getElementById('pkgBody');
+      const pkgTitle = document.getElementById('pkgTitle');
+      const pkgSub   = document.getElementById('pkgSub');
+      const pkgClose = document.getElementById('pkgClose');
+
+      const packages = {
+        mini: {
+          name: "Paket Mini",
+          subtitle: "3 desain • Rp50.000 • cocok untuk promo cepat / tes pasar",
+          qty: "3 desain",
+          eta: "1–2 hari",
+          badges: ["Hemat", "Cepat", "Cocok pemula"],
+          summary: [
+            "Total 3 desain (bisa mix: feed/story/banner).",
+            "1 konsep desain (1 gaya utama: warna, font, layout).",
+            "1x revisi (1 putaran revisi setelah draft).",
+            "Output: PNG/JPG tajam siap upload."
+          ],
+          whatYouGet: [
+            "3 desain final (PNG/JPG) + rapi penamaan file.",
+            "Layout clean + hierarki teks jelas (judul, harga, CTA).",
+            "Penyesuaian copy singkat agar mudah dibaca (tanpa ubah klaim produk)."
+          ],
+          needFromYou: [
+            "Nama produk + harga + promo (jika ada).",
+            "Foto produk (lebih bagus terang & jelas).",
+            "Logo (jika ada) + warna brand (jika sudah punya).",
+            "Referensi 1–3 contoh (link/screenshot)."
+          ],
+          contentExamples: [
+            "Promo spesial minggu ini (diskon/bundle).",
+            "Best seller + alasan kenapa harus coba.",
+            "Cara order + CTA (WA/marketplace)."
+          ],
+          calendar: [
+            "Hari 1: Posting Promo (Jam 12.00 atau 19.00)",
+            "Hari 3: Posting Best Seller (Jam 12.00)",
+            "Hari 5: Posting Cara Order + Reminder (Jam 19.00)"
+          ],
+          upsell: [
+            "Mau lebih konsisten? Naik ke Starter biar kontenmu 1 minggu aman.",
+            "Butuh file editable? Tambah add-on “editable + kit brand”."
+          ]
+        },
+
+        starter: {
+          name: "Paket Starter",
+          subtitle: "10 desain • 2–3 hari • Rp150.000 • ideal untuk campaign mingguan",
+          qty: "10 desain",
+          eta: "2–3 hari",
+          badges: ["Konsisten", "Weekly campaign", "Best start"],
+          summary: [
+            "Total 10 desain (mix feed/story sesuai kebutuhan).",
+            "1 konsep desain (konsisten brand).",
+            "1x revisi (1 putaran revisi).",
+            "Output: PNG/JPG siap upload."
+          ],
+          whatYouGet: [
+            "10 desain final (PNG/JPG).",
+            "1–2 contoh draft gaya desain di awal (biar aman sebelum produksi full).",
+            "Konsistensi warna/font + layout variatif tapi tetap satu gaya."
+          ],
+          needFromYou: [
+            "Daftar 10 konten (judul/topik singkat) atau 1 tema campaign.",
+            "Data penting: harga, benefit, alamat, kontak, CTA.",
+            "Foto produk/testimoni (jika ada)."
+          ],
+          contentExamples: [
+            "Promo minggu ini + countdown (feed/story).",
+            "Katalog 3 varian + harga.",
+            "Testimoni pelanggan (1–2 desain).",
+            "FAQ singkat: pengiriman, garansi, cara order.",
+            "Edukasi: tips pakai/merawat/benefit produk."
+          ],
+          calendar: [
+            "Senin: Promo utama",
+            "Rabu: Edukasi / Tips",
+            "Jumat: Testimoni + CTA",
+            "Minggu: Reminder promo + FAQ (story)"
+          ],
+          upsell: [
+            "Kalau mau aman 1 bulan, Bisnis lebih worth (30 desain).",
+            "Mau iklan? Add-on 5 set desain ads."
+          ]
+        },
+
+        bisnis: {
+          name: "Paket Bisnis",
+          subtitle: "30 desain • 5–7 hari • Rp350.000 • konten 1 bulan aktif",
+          qty: "30 desain",
+          eta: "5–7 hari",
+          badges: ["1 Bulan", "Variatif", "Growth"],
+          summary: [
+            "Total 30 desain (mix feed/story).",
+            "2 konsep desain (misal: promo + edukasi/testimoni).",
+            "2x revisi (2 putaran revisi).",
+            "Output: PNG/JPG siap upload."
+          ],
+          whatYouGet: [
+            "30 desain final (PNG/JPG).",
+            "2 gaya visual biar konten tidak monoton.",
+            "Struktur konten rapi (promo/edukasi/testimoni/branding).",
+            "Saran tema mingguan (opsional)."
+          ],
+          needFromYou: [
+            "List produk/layanan + range harga.",
+            "Poin benefit (3–6 poin) + USP (keunggulan).",
+            "Testimoni/hasil (kalau ada) + foto produk.",
+            "Aturan brand: warna, font (kalau sudah punya)."
+          ],
+          contentExamples: [
+            "12 Promo: diskon/bundle/limited/flash sale.",
+            "10 Edukasi: tips, cara pakai, before-after, FAQ.",
+            "6 Testimoni/UGC: review pelanggan, hasil nyata.",
+            "2 Branding: about, cara order, jam operasional."
+          ],
+          calendar: [
+            "Minggu 1: Promo + edukasi dasar (pengenalan produk)",
+            "Minggu 2: Promo + testimoni (naikin trust)",
+            "Minggu 3: Edukasi/FAQ (jawab keberatan calon buyer)",
+            "Minggu 4: Promo penutup + reminder + cara order"
+          ],
+          upsell: [
+            "Mau stok 2 bulan? Pro paling hemat per desain.",
+            "Biar makin rapi: add-on “editable + kit brand”."
+          ]
+        },
+
+        pro: {
+          name: "Paket Pro",
+          subtitle: "60 desain • 7–14 hari • Rp650.000 • stok 1–2 bulan + prioritas",
+          qty: "60 desain",
+          eta: "7–14 hari",
+          badges: ["Paling lengkap", "Stok panjang", "Naik kelas"],
+          summary: [
+            "Total 60 desain (feed/story/banner—sesuai kebutuhan).",
+            "2–3 konsep desain (promo, edukasi, branding/seasonal).",
+            "3x revisi (3 putaran revisi).",
+            "Output: PNG/JPG siap upload."
+          ],
+          whatYouGet: [
+            "60 desain final (PNG/JPG).",
+            "Produksi per-batch (misal 20-20-20) biar progres jelas.",
+            "Variasi layout paling banyak (tetap sesuai brand).",
+            "Rekomendasi kalender konten sederhana (opsional)."
+          ],
+          needFromYou: [
+            "Produk/layanan lengkap + list varian & harga.",
+            "Brand guideline (logo, warna, font).",
+            "Foto/asset (produk, tim, testimoni).",
+            "Target campaign (launching/seasonal/growth)."
+          ],
+          contentExamples: [
+            "24 Promo: diskon, bundle, best seller, limited.",
+            "20 Edukasi: tips, cara pakai, myth vs fact, FAQ.",
+            "10 Social proof: testimoni, UGC, before-after.",
+            "6 Branding: about, cara order, highlight, layanan."
+          ],
+          calendar: [
+            "Bulan 1: Fokus trust (edukasi + testimoni) + promo rutin",
+            "Bulan 2: Fokus konversi (promo kuat + reminder) + FAQ keberatan"
+          ],
+          upsell: [
+            "Kalau mau jualan lebih kenceng: add-on desain ads 5 set.",
+            "Bisa request size khusus untuk marketplace/web banner."
+          ]
+        }
+      };
+
+      function escapeHTML(s){
+        return String(s)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+      function renderList(title, items){
+        return `
+          <div class="modalCard">
+            <b>${escapeHTML(title)}</b>
+            <ul class="muted">
+              ${items.map(x => `<li>${escapeHTML(x)}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      }
+
+      function openPackage(key){
+        const pkg = packages[key];
+        if(!pkg) return;
+
+        pkgTitle.textContent = pkg.name;
+        pkgSub.textContent = pkg.subtitle;
+
+        const badges = (pkg.badges || []).map(b => `<span class="badge">${escapeHTML(b)}</span>`).join(" ");
+
+        pkgBody.innerHTML = `
+          <div class="modalCard">
+            <b>Highlight</b>
+            <div class="muted" style="margin-top:8px;">${badges}</div>
+            <div class="modalNote"><b>Estimasi pengerjaan:</b> ${escapeHTML(pkg.eta)} (tergantung antrian & kelengkapan bahan)</div>
+          </div>
+
+          <div class="modalGrid">
+            ${renderList("Ringkasan Paket", pkg.summary)}
+            ${renderList("Yang kamu dapat", pkg.whatYouGet)}
+            ${renderList("Yang perlu kamu siapkan", pkg.needFromYou)}
+            ${renderList("Contoh isi konten (judul)", pkg.contentExamples)}
+          </div>
+
+          <div class="modalGrid" style="margin-top:12px;">
+            ${renderList("Kalender posting (contoh)", pkg.calendar)}
+            ${renderList("Rekomendasi upgrade / add-on", pkg.upsell)}
+          </div>
+
+          <div class="modalCard" style="margin-top:12px;">
+            <b>Pilih paket ini</b>
+            <div class="muted" style="margin-top:8px;">
+              Klik tombol di bawah untuk langsung scroll ke <b>Kontak</b> dan format order otomatis terisi.
+            </div>
+            <div class="modalCta">
+              <button class="btn" type="button" data-pick="${key}">
+                Pilih ${escapeHTML(pkg.name)}
+              </button>
+              <a class="btnGhost" href="#cara" onclick="closePkgModal()">Lihat Cara Kerja</a>
+            </div>
+            <div class="modalNote">Tip: setelah terisi, klik <b>Copy teks</b> atau langsung <b>Kirim ke WhatsApp</b>.</div>
+          </div>
+        `;
+
+        pkgBody.querySelectorAll('[data-pick]').forEach(btn=>{
+          btn.addEventListener('click', () => {
+            setOrderTemplate(pkg.name, pkg.qty, pkg.eta);
+            closePkgModal();
+            document.querySelector('#kontak')?.scrollIntoView({behavior:'smooth', block:'start'});
+          });
+        });
+
+        pkgModal.classList.add('open');
+        pkgModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => pkgClose.focus(), 50);
+      }
+
+      function closePkgModal(){
+        pkgModal.classList.remove('open');
+        pkgModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      window.closePkgModal = closePkgModal;
+
+      document.querySelectorAll('.priceCard').forEach(card => {
+        card.addEventListener('click', () => openPackage(card.dataset.package));
+        card.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openPackage(card.dataset.package);
+          }
+        });
+      });
+
+      pkgClose.addEventListener('click', closePkgModal);
+      pkgModal.addEventListener('click', (e) => { if(e.target === pkgModal) closePkgModal(); });
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && pkgModal.classList.contains('open')) closePkgModal(); });
+
+      orderTextEl.addEventListener('input', () => {
+        waOrderBtn.href = `https://wa.me/${PHONE}?text=${encodeURIComponent("Halo Naikin Studio, saya mau order.\n\n" + orderTextEl.value)}`;
+      });
 
     })();
   </script>
