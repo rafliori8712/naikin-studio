@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Naikin Studio — Jasa Desain Konten</title>
+  <meta name="description" content="Naikin Studio bantu UMKM & online shop naik kelas lewat desain konten: feed, story, banner, pricelist, dan template konten. Elegan, rapi, siap jual." />
+
+  <style>
+    /* =========================
+       Naikin Studio — Red & White (Premium, Clean)
+       ========================= */
+    :root{
+      --bg: #ffffff;
+      --text: #0b0f1a;
+      --muted: rgba(11,15,26,.72);
+
+      --red: #d71920;
+      --red2:#ff3b30;
+      --line: rgba(215,25,32,.16);
+
+      --surface: rgba(255,255,255,.92);
+      --shadow: 0 26px 70px rgba(2,6,23,.14);
+      --shadow2: 0 12px 30px rgba(2,6,23,.09);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(215,25,32,.08), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(255,59,48,.07), transparent 60%),
+        var(--bg);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    .wrap{max-width:1120px; margin:auto; padding:22px;}
+    @media (max-width:640px){ .wrap{padding:16px;} }
+
+    /* ===== NAV ===== */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(215,25,32,.10);
+    }
+    .nav .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding-top:14px; padding-bottom:14px;
+    }
+    .navLeft{display:flex; align-items:center; gap:12px;}
+    .navLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .nav a{
+      color: rgba(11,15,26,.78);
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      transition: all .18s ease;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      background: rgba(215,25,32,.08);
+      border-color: rgba(215,25,32,.14);
+      color: rgba(11,15,26,.92);
+      transform: translateY(-1px);
+    }
+
+    /* ===== BRAND ===== */
+    .brandMark{
+      width:42px; height:42px;
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      background: linear-gradient(135deg, rgba(215,25,32,.98), rgba(255,59,48,.94));
+      box-shadow: var(--shadow2);
+      border:1px solid rgba(255,255,255,.45);
+    }
+    .brandName{font-weight:950; letter-spacing:-.02em; line-height:1.1; font-size:18px;}
+    .brandSub{font-size:12px; color:rgba(11,15,26,.62); margin-top:-2px;}
+
+    /* ===== HERO BASE ===== */
+    .parallax{
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid rgba(215,25,32,.08);
+    }
+    .parallax::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: var(--bgimg);
+      background-size:cover;
+      background-position:center;
+      background-attachment: fixed;
+      transform: translateZ(0);
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .parallax::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(215,25,32,.30), transparent 60%),
+        radial-gradient(1200px 700px at 90% 10%, rgba(255,59,48,.20), transparent 60%),
+        linear-gradient(180deg, rgba(2,6,23,.55) 0%, rgba(2,6,23,.38) 45%, rgba(255,255,255,.95) 100%);
+    }
+
+    .heroInner{
+      position:relative; z-index:2;
+      padding:76px 0 36px;
+    }
+    @media (max-width:640px){ .heroInner{padding:56px 0 26px;} }
+
+    /* ===== CTA ===== */
+    .ctaRow{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; justify-content:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 22px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:950;
+      transition: all .18s ease;
+      box-shadow: 0 18px 42px rgba(215,25,32,.18);
+      border:1px solid rgba(215,25,32,.18);
+      background: linear-gradient(135deg, rgba(215,25,32,.98), rgba(255,59,48,.95));
+      color:#fff;
+      gap:10px;
+    }
+    .btn:hover{transform: translateY(-2px); filter: brightness(1.03);}
+
+    .btnGhost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 22px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:950;
+      transition: all .18s ease;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(215,25,32,.18);
+      color: rgba(11,15,26,.92);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+    }
+    .btnGhost:hover{transform: translateY(-2px); background: rgba(255,255,255,.98);}
+
+    /* =========================
+       ✅ HERO PREMIUM (MATCH MOCKUP)
+       - center align
+       - pill "Clean" merah
+       - wave + dots background
+       ========================= */
+    .heroLight{ position:relative; }
+    .heroLight::before{ opacity:0 !important; } /* matiin foto biar clean */
+
+    .heroLight::after{
+      background:
+        radial-gradient(980px 600px at 50% 0%, rgba(215,25,32,.12), transparent 62%),
+        radial-gradient(900px 560px at 92% 14%, rgba(255,59,48,.09), transparent 62%),
+        radial-gradient(900px 560px at 8% 18%, rgba(215,25,32,.06), transparent 62%),
+
+        /* dots kanan atas (lebih halus) */
+        radial-gradient(circle at 86% 18%, rgba(215,25,32,.22) 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 22%, rgba(215,25,32,.16) 0 2px, transparent 3px),
+        radial-gradient(circle at 94% 26%, rgba(215,25,32,.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 30%, rgba(215,25,32,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 95% 32%, rgba(215,25,32,.10) 0 2px, transparent 3px),
+
+        /* wave layer bawah */
+        radial-gradient(1200px 360px at 18% 78%, rgba(215,25,32,.06), transparent 65%),
+        radial-gradient(1200px 360px at 82% 80%, rgba(215,25,32,.05), transparent 65%),
+        radial-gradient(1500px 420px at 50% 92%, rgba(11,15,26,.05), transparent 72%),
+
+        linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.96) 55%, rgba(255,255,255,1) 100%);
+    }
+
+    .heroLight .heroInner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      color: var(--text);
+    }
+
+    /* pill like mockup */
+    .pill{
+      display:inline-flex; align-items:center; gap:12px;
+      font-size:13px; font-weight:950;
+      padding:10px 16px;
+      border-radius:999px;
+      color: rgba(11,15,26,.80);
+      background: rgba(255,255,255,.88);
+      border:1px solid rgba(215,25,32,.18);
+      box-shadow: 0 18px 44px rgba(2,6,23,.10);
+      backdrop-filter: blur(10px);
+    }
+    .pill .tagRed{
+      padding:8px 14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(215,25,32,.98), rgba(255,59,48,.92));
+      color:#fff;
+      box-shadow: 0 14px 30px rgba(215,25,32,.18);
+    }
+    .pill .sep{
+      width:6px; height:6px; border-radius:99px;
+      background: rgba(215,25,32,.55);
+    }
+
+    .heroTitle{
+      font-size:56px;
+      letter-spacing:-.035em;
+      margin:18px 0 12px;
+      line-height:1.06;
+      font-weight:950;
+      color:#0b0f1a;
+      max-width: 980px;
+    }
+    @media (max-width:640px){ .heroTitle{font-size:34px;} }
+
+    .heroLead{
+      max-width: 920px;
+      font-size:18px;
+      line-height:1.9;
+      margin:0;
+      color: rgba(11,15,26,.70);
+    }
+    .heroLead b{ color: rgba(215,25,32,.95); font-weight: 950; }
+
+    @media (max-width:640px){
+      .btn,.btnGhost{width:100%;}
+      .ctaRow{gap:10px;}
+    }
+
+    /* WA icon in CTA */
+    .waIcon{
+      width:22px; height:22px; display:inline-block;
+    }
+
+    /* ===== CONTENT TYPO ===== */
+    h2{
+      margin:28px 0 12px;
+      letter-spacing:-.01em;
+      font-size:22px;
+      color: var(--text);
+    }
+    .muted{color:var(--muted);}
+    .note{font-size:13px;}
+
+    /* ===== CARDS ===== */
+    .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{
+      border-radius: var(--radius);
+      background: var(--surface);
+      border:1px solid rgba(215,25,32,.10);
+      box-shadow: var(--shadow2);
+      padding:16px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(215,25,32,.18);
+    }
+
+    .hr{height:1px; background: rgba(215,25,32,.10); margin:16px 0;}
+
+    /* ===== KPI (hero cards) ===== */
+    .kpi{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:16px;
+      margin-top:26px;
+      width:100%;
+    }
+    .kpi .card{
+      grid-column: span 4;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(215,25,32,.10);
+      box-shadow: 0 18px 44px rgba(2,6,23,.08);
+    }
+    @media (max-width:900px){ .kpi .card{grid-column: span 6;} }
+    @media (max-width:640px){ .kpi .card{grid-column: span 12;} }
+
+    /* KPI hitam (request sebelumnya) */
+    .kpi .card, .kpi .card *{ color:#000 !important; }
+
+    .kpiTitle{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight: 950;
+      margin-bottom: 8px;
+      font-size:18px;
+    }
+    .kpiIcon{
+      width:40px; height:40px;
+      border-radius: 16px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(215,25,32,.08);
+      border: 1px solid rgba(215,25,32,.14);
+      flex: 0 0 auto;
+    }
+    .kpiIcon svg{width:20px; height:20px;}
+    .kpiText{ opacity:.92; font-size:16px; line-height:1.6; }
+
+    /* ===== PRICING ===== */
+    .price{font-size:22px; letter-spacing:-.01em;}
+    ul{margin:10px 0 0 18px; padding:0;}
+    li{margin:6px 0;}
+    ol{margin:10px 0 0 18px;}
+
+    /* ===== LINKS ===== */
+    a{color: rgba(215,25,32,.95);}
+    a:hover{color: rgba(215,25,32,1);}
+
+    /* ===== PARALLAX BANNER CARD ===== */
+    .parallaxCard{
+      position:relative;
+      margin-top:26px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(215,25,32,.10);
+      box-shadow: var(--shadow2);
+    }
+    .parallaxCard::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: var(--bgimg);
+      background-size:cover;
+      background-position:center;
+      background-attachment: fixed;
+      filter: saturate(1.05) contrast(1.05);
+      transform: translateZ(0);
+    }
+    .parallaxCard::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(2,6,23,.55) 0%, rgba(2,6,23,.22) 55%, rgba(255,255,255,.0) 100%),
+        radial-gradient(900px 520px at 25% 25%, rgba(215,25,32,.22), transparent 60%);
+    }
+    .parallaxCard .inner{
+      position:relative; z-index:2;
+      padding:34px 22px;
+      color:#fff;
+    }
+    .parallaxCard .inner h2{color:#fff; margin:0 0 8px; text-shadow: 0 12px 30px rgba(0,0,0,.35);}
+    .parallaxCard .inner p{color: rgba(255,255,255,.90); max-width:820px; margin:0; text-shadow: 0 10px 24px rgba(0,0,0,.25);}
+
+    /* =========================
+       PORTFOLIO SLIDER
+       ========================= */
+    .portfolio-wrap{ margin-top: 12px; }
+    .carousel{
+      position: relative;
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(215,25,32,.10);
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+    }
+    .carousel-viewport{
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 14px;
+      display: flex;
+      gap: 14px;
+    }
+    .carousel-viewport::-webkit-scrollbar{ height: 10px; }
+    .carousel-viewport::-webkit-scrollbar-thumb{
+      background: rgba(215,25,32,.18);
+      border-radius: 999px;
+    }
+    .carousel-viewport::-webkit-scrollbar-track{
+      background: rgba(0,0,0,.05);
+      border-radius: 999px;
+    }
+
+    .portfolio-item{
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 14px 30px rgba(0,0,0,.12);
+      cursor: zoom-in;
+    }
+    @media (max-width:640px){
+      .portfolio-item{ flex-basis: 78vw; }
+    }
+
+    .portfolio-item img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      display:block;
+      transition: transform .35s ease;
+    }
+    .portfolio-item:hover img{ transform:scale(1.08); }
+
+    .portfolio-caption{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:10px 12px;
+      background:linear-gradient(transparent, rgba(0,0,0,.65));
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .carBtn{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width:44px; height:44px;
+      border-radius:999px;
+      border:1px solid rgba(215,25,32,.18);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer;
+      z-index: 3;
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .carBtn:hover{ transform: translateY(-50%) scale(1.03); filter: brightness(1.02); }
+    .carBtn:active{ transform: translateY(-50%) scale(.98); }
+    .carPrev{ left: 10px; }
+    .carNext{ right: 10px; }
+    .carIcon{
+      width:18px; height:18px;
+      border-right:3px solid rgba(11,15,26,.70);
+      border-bottom:3px solid rgba(11,15,26,.70);
+      transform: rotate(135deg);
+    }
+    .carNext .carIcon{ transform: rotate(-45deg); }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background: rgba(0,0,0,.82);
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox-inner{
+      width:min(1100px, 96vw);
+      height:min(86vh, 900px);
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      backdrop-filter: blur(10px);
+    }
+    .lightbox-img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background: rgba(0,0,0,.25);
+    }
+    .lightbox-close{
+      position:absolute;
+      top:10px;
+      right:10px;
+      border:none;
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.16);
+      color:#fff;
+      font-weight:950;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .lightbox-caption{
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      right:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background: rgba(0,0,0,.45);
+      color: rgba(255,255,255,.92);
+      font-size:13px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      margin:34px 0 10px;
+      border-top:1px solid rgba(215,25,32,.10);
+      padding-top:16px;
+      color: rgba(11,15,26,.62);
+    }
+
+    section{scroll-margin-top:90px;}
+
+    /* Floating WA */
+    .waFloat{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(215,25,32,.98), rgba(255,59,48,.94));
+      color:#fff; text-decoration:none; font-weight:950;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.25);
+    }
+    .waDot{
+      width:10px; height:10px; border-radius:99px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.16);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      .parallax::before, .parallaxCard::before{background-attachment: scroll;}
+      .carousel-viewport{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap">
+      <div class="navLeft">
+        <div class="brandMark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 16L16.5 5.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M10 5.5H16.5V12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 16H12.5" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brandName">Naikin Studio</div>
+          <div class="brandSub">Desain Konten untuk UMKM</div>
+        </div>
+      </div>
+
+      <div class="navLinks">
+        <a href="#layanan">Layanan</a>
+        <a href="#paket">Paket</a>
+        <a href="#cara">Cara Kerja</a>
+        <a href="#porto">Portofolio</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO (match mockup) -->
+  <header class="parallax heroLight" style="--bgimg:url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=2000&q=80');">
+    <div class="wrap heroInner">
+
+      <div class="pill">
+        <span class="tagRed">Clean</span>
+        <span class="sep" aria-hidden="true"></span>
+        Premium
+        <span class="sep" aria-hidden="true"></span>
+        Siap jual
+      </div>
+
+      <h1 class="heroTitle">Naikin visual, naikin kepercayaan.</h1>
+
+      <p class="heroLead">
+        Desain konten yang rapi dan konsisten untuk <b>promo</b>, <b>katalog</b>, <b>testimoni</b>, sampai <b>template bulanan</b>.
+        Kamu fokus jualan — visualnya biar Naikin Studio yang urus.
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn" target="_blank"
+           href="https://wa.me/6281334185031?text=Halo%20Naikin%20Studio%2C%20saya%20mau%20order%20desain.%0AProduk%3A%20...%0AKebutuhan%3A%20(feed%2Fstory%2Fbanner%2Fpricelist%2Ftemplate)%0ADeadline%3A%20...%0APaket%3A%20...%0AReferensi%3A%20...">
+          <svg class="waIcon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 3C9.4 3 4 8.2 4 14.7c0 2.5.8 4.9 2.2 6.9L5 29l7.6-1.9c2 1.1 4.3 1.7 6.6 1.7 6.6 0 12-5.2 12-11.7C31.2 8.2 25.8 3 19.2 3H16Z" fill="rgba(255,255,255,.18)"/>
+            <path d="M16 5.2c-5.5 0-10 4.3-10 9.5 0 2.2.8 4.2 2.1 5.8l-.8 5.5 5.6-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.3 10-9.5S21.5 5.2 16 5.2Z" fill="rgba(255,255,255,.22)"/>
+            <path d="M22.4 18.6c-.3.8-1.5 1.4-2.4 1.6-.6.1-1.4.2-2.3-.1-2.8-.9-4.6-3.1-4.7-3.2-.1-.1-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5.2.5.8 1.9.9 2 .1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.5 2.9 1.7.3.1.6.1.8-.1.2-.2.9-1 1.1-1.3.2-.3.5-.2.8-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.6.3.1.1.1.6-.2 1.4Z" fill="white"/>
+          </svg>
+          Chat WhatsApp — Konsultasi Gratis
+        </a>
+        <a class="btnGhost" href="#paket">Lihat Paket</a>
+      </div>
+
+      <!-- KPI -->
+      <div class="kpi">
+        <div class="card">
+          <div class="kpiTitle">
+            <span class="kpiIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 3h10v6H7V3Z" stroke="rgba(215,25,32,.95)" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M5 9h14v12H5V9Z" stroke="rgba(215,25,32,.95)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Output
+          </div>
+          <div class="kpiText">PNG/JPG siap upload • file editable (opsional)</div>
+        </div>
+
+        <div class="card">
+          <div class="kpiTitle">
+            <span class="kpiIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2Z" stroke="rgba(215,25,32,.95)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Rasa Desain
+          </div>
+          <div class="kpiText">Elegan, clean, dan konsisten dengan brand kamu</div>
+        </div>
+
+        <div class="card">
+          <div class="kpiTitle">
+            <span class="kpiIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 4h10v16H7V4Z" stroke="rgba(215,25,32,.95)" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9 8h6M9 12h6M9 16h4" stroke="rgba(215,25,32,.95)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            Workflow
+          </div>
+          <div class="kpiText">Brief jelas • update progress • deadline aman</div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- LAYANAN -->
+    <section id="layanan">
+      <h2>Layanan</h2>
+      <div class="grid">
+        <div class="card"><b>Desain Feed IG</b><div class="muted" style="margin-top:6px;">Promo, katalog, testimoni, edukasi produk.</div></div>
+        <div class="card"><b>Story IG</b><div class="muted" style="margin-top:6px;">Flash sale, reminder, Q&A, interaktif.</div></div>
+        <div class="card"><b>Banner / Header</b><div class="muted" style="margin-top:6px;">Marketplace, website, toko online.</div></div>
+        <div class="card"><b>Pricelist / Menu</b><div class="muted" style="margin-top:6px;">Rapi, mudah dibaca, siap kirim ke calon pembeli.</div></div>
+        <div class="card"><b>Template Konten</b><div class="muted" style="margin-top:6px;">7–30 hari + panduan posting & konsistensi brand.</div></div>
+        <div class="card"><b>Desain Iklan</b><div class="muted" style="margin-top:6px;">Ukuran siap pakai untuk ads (Meta/TikTok).</div></div>
+      </div>
+    </section>
+
+    <!-- PARALLAX BANNER -->
+    <section class="parallaxCard" style="--bgimg:url('https://images.unsplash.com/photo-1520975693411-8f3d2f2fef61?auto=format&fit=crop&w=2000&q=80');">
+      <div class="inner">
+        <h2>Desain yang bikin brand kamu kelihatan “naik kelas”.</h2>
+        <p>Visual rapi + konsisten = trust naik. Cocok buat UMKM yang mau tampil profesional tanpa ribet.</p>
+      </div>
+    </section>
+
+    <!-- PAKET -->
+    <section id="paket">
+      <h2>Paket & Harga</h2>
+      <div class="grid">
+
+        <div class="card">
+          <b>Paket Mini</b>
+          <div class="muted">3 desain</div>
+          <div style="margin-top:10px;" class="price"><b>Rp50.000</b></div>
+          <div class="hr"></div>
+          <ul class="muted">
+            <li>1 konsep desain</li>
+            <li>Revisi 1x</li>
+            <li>File PNG/JPG</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Paket Starter</b>
+          <div class="muted">10 desain • 2–3 hari</div>
+          <div style="margin-top:10px;" class="price"><b>Rp150.000</b></div>
+          <div class="hr"></div>
+          <ul class="muted">
+            <li>1 konsep desain</li>
+            <li>Revisi 1x</li>
+            <li>File PNG/JPG</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Paket Bisnis</b>
+          <div class="muted">30 desain • 5–7 hari</div>
+          <div style="margin-top:10px;" class="price"><b>Rp350.000</b></div>
+          <div class="hr"></div>
+          <ul class="muted">
+            <li>2 konsep desain</li>
+            <li>Revisi 2x</li>
+            <li>File PNG/JPG</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <b>Paket Pro</b>
+          <div class="muted">60 desain • 7–14 hari</div>
+          <div style="margin-top:10px;" class="price"><b>Rp650.000</b></div>
+          <div class="hr"></div>
+          <ul class="muted">
+            <li>2–3 konsep desain</li>
+            <li>Revisi 3x</li>
+            <li>File PNG/JPG</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <b>Add-on (Opsional)</b>
+        <ul class="muted">
+          <li>Revisi extra: Rp10.000/desain</li>
+          <li>File editable + kit brand (warna & font): Rp50.000</li>
+          <li>Desain iklan (Meta/TikTok) 5 set: Rp100.000</li>
+        </ul>
+        <div class="muted" style="margin-top:8px; font-size:13px;">Catatan: harga bisa disesuaikan dengan kompleksitas & deadline.</div>
+      </div>
+    </section>
+
+    <!-- CARA -->
+    <section id="cara">
+      <h2>Cara Kerja</h2>
+      <div class="card">
+        <ol class="muted">
+          <li>Kamu kirim brief: produk, target, warna, style, contoh referensi.</li>
+          <li>Aku kirim 2 contoh gaya desain (kamu pilih 1).</li>
+          <li>Produksi sesuai paket + revisi.</li>
+          <li>Final dikirim: PNG/JPG (dan file editable jika diminta).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PORTOFOLIO -->
+    <section id="porto">
+      <h2>Portofolio</h2>
+      <p class="muted">Klik gambar untuk lihat full (tanpa kepotong). Geser pakai panah kanan/kiri.</p>
+
+      <div class="portfolio-wrap">
+        <div class="carousel" data-carousel="feed">
+          <button class="carBtn carPrev" type="button" aria-label="Geser kiri"><span class="carIcon" aria-hidden="true"></span></button>
+          <div class="carousel-viewport" id="portfolioFeed"></div>
+          <button class="carBtn carNext" type="button" aria-label="Geser kanan"><span class="carIcon" aria-hidden="true"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTOFOLIO BANNER -->
+    <section id="portoBanner">
+      <h2>Portofolio Banner</h2>
+      <p class="muted">Klik gambar untuk lihat full (tanpa kepotong). Geser pakai panah kanan/kiri.</p>
+
+      <div class="portfolio-wrap">
+        <div class="carousel" data-carousel="banner">
+          <button class="carBtn carPrev" type="button" aria-label="Geser kiri"><span class="carIcon" aria-hidden="true"></span></button>
+          <div class="carousel-viewport" id="portfolioBanner"></div>
+          <button class="carBtn carNext" type="button" aria-label="Geser kanan"><span class="carIcon" aria-hidden="true"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <div class="grid">
+        <div class="card">
+          <b>WhatsApp</b>
+          <p class="muted" style="margin-top:8px;">Klik untuk chat</p>
+          <a class="btn" target="_blank" href="https://wa.me/6281334185031">Chat WhatsApp</a>
+        </div>
+        <div class="card">
+          <b>Email</b>
+          <p class="muted" style="margin-top:8px;">ahmadrapli70@gmail.com</p>
+          <a class="btnGhost" href="mailto:EMAIL_KAMU">Kirim Email</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <b>Format order cepat</b>
+        <p class="muted" style="margin-top:8px;">
+          Produk: ... • Kebutuhan: ... • Paket: ... • Deadline: ... • Referensi: ...
+        </p>
+      </div>
+    </section>
+
+    <footer class="muted">
+      © Naikin Studio — 2025
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-modal="true">
+      <button class="lightbox-close" id="lightboxClose" type="button">Tutup ✕</button>
+      <img class="lightbox-img" id="lightboxImg" alt="Preview portofolio">
+      <div class="lightbox-caption" id="lightboxCap"></div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <a class="waFloat" target="_blank"
+     href="https://wa.me/6281334185031?text=Halo%20Naikin%20Studio%2C%20saya%20mau%20konsultasi%20desain.">
+    <span class="waDot" aria-hidden="true"></span>
+    Chat WA
+  </a>
+
+  <script>
+    (function(){
+      /* ======================================================
+         EASY ADD PORTFOLIO:
+         Tambah gambar cukup di array ini (feed / banner).
+         - thumb: gambar kecil (boleh sama dengan full)
+         - full : gambar untuk lightbox
+         - cap  : caption
+         ====================================================== */
+
+      const portfolioFeed = [
+        { thumb: "Biru Minimalis Promo Cuci Sepatu Instagram Post.jpg", full: "Biru Minimalis Promo Cuci Sepatu Instagram Post.jpg", cap: "Promo Cuci Sepatu (Feed)" },
+        { thumb: "Kuning Biru Sobekan Kertas Promosi Cuci Helm Cerita Instagram(1).png", full: "Kuning Biru Sobekan Kertas Promosi Cuci Helm Cerita Instagram(1).png", cap: "Promo Cuci Helm (Story)" },
+        { thumb: "promo 1(1).jpg", full: "promo 1(1).jpg", cap: "Promo Jasa Cuci Sepatu" },
+        { thumb: "Promo Launching Cuci Helm.png", full: "Promo Launching Cuci Helm.png", cap: "Promo Launching Cuci Helm" },
+        { thumb: "Edukasi Manfaat Penggunaan Shoetree.png", full: "Edukasi Manfaat Penggunaan Shoetree.png", cap: "Edukasi Manfaat Penggunaan Shoetree" },
+        { thumb: "Edukasi Manfaat Tahukah Kamu.png", full: "Edukasi Manfaat Tahukah Kamu.png", cap: "Edukasi Manfaat Tahukah Kamu" },
+        { thumb: "Edukasi Tips Menyimpan Sepatu.png", full: "Edukasi Tips Menyimpan Sepatu.png", cap: "Edukasi Tips Menyimpan Sepatu" },
+        { thumb: "Tips Merawat Sepatu Kulit1.png", full: "Tips Merawat Sepatu Kulit1.png", cap: "Tips Merawat Sepatu Kulit1" },
+        { thumb: "Tips Merawat Sepatu Kulit2.png", full: "Tips Merawat Sepatu Kulit2.png", cap: "Tips Merawat Sepatu Kulit2" },
+        { thumb: "Tips Merawat Sepatu Kulit3.png", full: "Tips Merawat Sepatu Kulit3.png", cap: "Tips Merawat Sepatu Kulit3" },
+        { thumb: "Ig Story Promo Cuci Sepatu Cllabs.png", full: "Ig Story Promo Cuci Sepatu Cllabs.png", cap: "Ig Story Promo Cuci Sepatu Cllabs" },
+        { thumb: "Selamat Hari Raya Waisak Instagram Post.png", full: "Selamat Hari Raya Waisak Instagram Post.png", cap: "Selamat Hari Raya Waisak Instagram Post" },
+        { thumb: "Promo Cuci Helm.png", full: "Promo Cuci Helm.png", cap: "Promo Cuci Helm" },
+        { thumb: "Edukasi Kenapa Sepatu Harus Bersih.png", full: "Edukasi Kenapa Sepatu Harus Bersih.png", cap: "Edukasi Kenapa Sepatu Harus Bersih" },
+        { thumb: "Edukasi Kenapa Sepatu Harus Bersih1.png", full: "Edukasi Kenapa Sepatu Harus Bersih1.png", cap: "Edukasi Kenapa Sepatu Harus Bersih1" },
+        { thumb: "postingan promo update.png", full: "postingan promo update.png", cap: "postingan promo update" },
+        { thumb: "Price List Cuci Sepatu.png", full: "Price List Cuci Sepatu.png", cap: "Price List Cuci Sepatu" },
+        { thumb: "Tips Merawat Sepatu Suede.png", full: "Tips Merawat Sepatu Suede.png", cap: "Tips Merawat Sepatu Suede" },
+        { thumb: "17 Agustus Promo Merdeka Instagram Post.png", full: "17 Agustus Promo Merdeka Instagram Post.png", cap: "17 Agustus Promo Merdeka Instagram Post" },
+        { thumb: "17 Agustus Merdeka Before After Post.png", full: "17 Agustus Merdeka Before After Post.png", cap: "17 Agustus Merdeka Before After Post" },
+        { thumb: "17 Agustus Merdeka Before After Post1.png", full: "17 Agustus Merdeka Before After Post1.png", cap: "17 Agustus Merdeka Before After Post1" },
+        { thumb: "Promo Full Colour.png", full: "Promo Full Colour.png", cap: "Promo Full Colour" },
+        { thumb: "Before After Full Colour.png", full: "Before After Full Colour.png", cap: "Before After Full Colour" },
+        { thumb: "Before After Full Colour1.png", full: "Before After Full Colour1.png", cap: "Before After Full Colour1" },
+      ];
+
+      const portfolioBanner = [
+        { thumb: "Banner A1 promo oct.png", full: "Banner A1 promo oct.png", cap: "Banner Promo (A1)" },
+        { thumb: "Banner Booth 60x160.png", full: "Banner Booth 60x160.png", cap: "Banner Booth 60x160" },
+
+      ];
+
+      function renderPortfolio(targetId, items){
+        const wrap = document.getElementById(targetId);
+        if(!wrap) return;
+
+        wrap.innerHTML = items.map((it) => {
+          const t = it.thumb || it.full;
+          const f = it.full || it.thumb;
+          const c = it.cap || '';
+          return `
+            <div class="portfolio-item" data-full="${f}" data-cap="${c}">
+              <img src="${t}" alt="${c}">
+              <div class="portfolio-caption">${c}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderPortfolio('portfolioFeed', portfolioFeed);
+      renderPortfolio('portfolioBanner', portfolioBanner);
+
+      /* Lightbox */
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbCap = document.getElementById('lightboxCap');
+      const lbClose = document.getElementById('lightboxClose');
+
+      function openLightbox(src, cap){
+        lbImg.src = src;
+        lbCap.textContent = cap || '';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox(){
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', (e) => {
+        const item = e.target.closest('.portfolio-item');
+        if(!item) return;
+        const src = item.getAttribute('data-full') || item.querySelector('img')?.getAttribute('src');
+        const cap = item.getAttribute('data-cap') || '';
+        if(src) openLightbox(src, cap);
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+      /* Carousel arrows */
+      function setupCarousel(carouselEl){
+        const viewport = carouselEl.querySelector('.carousel-viewport');
+        const prevBtn = carouselEl.querySelector('.carPrev');
+        const nextBtn = carouselEl.querySelector('.carNext');
+        if(!viewport || !prevBtn || !nextBtn) return;
+
+        const scrollAmount = () => Math.max(260, Math.floor(viewport.clientWidth * 0.90));
+        prevBtn.addEventListener('click', () => viewport.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+        nextBtn.addEventListener('click', () => viewport.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+      }
+      document.querySelectorAll('.carousel').forEach(setupCarousel);
+
+    })();
+  </script>
+
+</body>
+</html>
